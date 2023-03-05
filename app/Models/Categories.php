@@ -10,5 +10,6 @@ class Categories extends Model
     protected $fillable = [
         "category_name"
     ];
+    protected $primaryKey = 'id';
     use HasFactory;
 }
