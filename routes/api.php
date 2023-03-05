@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'index');
     Route::post('/categories', 'store');
+});
+// product routing
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/products', 'index');
+    Route::post('/products', 'store');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
