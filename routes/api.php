@@ -25,6 +25,7 @@ Route::controller(CategoryController::class)->group(function () {
 // product routing
 Route::controller(ProductController::class)->group(function () {
     Route::get('/products', 'index');
+    Route::get('/products/{id}', 'show');
     Route::post('/products', 'store');
 });
 

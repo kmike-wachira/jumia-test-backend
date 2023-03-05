@@ -38,14 +38,14 @@ class ProductController extends Controller
             return ['error' => $validator->messages()];
         }
         // insert image to storage
-        $path = $request->file('product_image')->store('products');
+        $path = $request->file('product_image')->store('/products');
         // get validated requet data
         $validated = $validator->validated();
         // modify validated to add image path
-        $validated['product_image'] = $path;
+        $validated['product_image'] = '/storage/' . $path;
         // save data to database
         $newproduct = Products::create($validated);
-        return response(['message' => "saved successfully"], 201);
+        return response(['message' => $newproduct], 201);
     }
 
     /**
